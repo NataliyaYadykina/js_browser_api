@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2. Dispatchls</title>
+</head>
+
+<body>
+
+    <button class="btn">Click me!</button>
+
+    <script>
+        const btn = document.querySelector('.btn');
+
+        btn.addEventListener('click', function (event) {
+            if (event.isTrusted) {
+                console.log('Click is trust.');
+            } else {
+                console.log('Click is not trust.');
+            }
+        });
+
+        function simulateClick() {
+            const clickEvent = new Event("click", { bubbles: true });
+            btn.dispatchEvent(clickEvent);
+        }
+
+        setTimeout(simulateClick, 2000); // Имитация клика через 2 секунды
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2. Mouse 1</title>
+    <style>
+        .menu_item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* .menu_item:hover {
+            background-color: lightgray;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="menu">
+        <div class="menu_item">Item 1</div>
+        <div class="menu_item">Item 2</div>
+        <div class="menu_item">Item 3</div>
+    </div>
+
+    <script>
+
+        const menuItems = document.querySelectorAll('.menu_item');
+
+        menuItems.forEach(item => {
+
+            item.addEventListener('mouseover', function (e) {
+                item.style.backgroundColor = "#f0f0f0";
+            });
+
+            item.addEventListener('mouseout', function (e) {
+                item.style.backgroundColor = "";
+            });
+
+            item.addEventListener('click', function (e) {
+                console.log(item.textContent);
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

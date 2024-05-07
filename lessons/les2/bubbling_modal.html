@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2. Bubbling modal</title>
+    <style>
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .open_modal_btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="open_modal_btn">Open modal window</button>
+
+    <div id="modal">
+        <h2>Modal window</h2>
+        <p>Click on not a modal window to close it.</p>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openModalBtn = document.querySelector('.open_modal_btn');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        document.addEventListener('mousedown', (event) => {
+            if (!modal.contains(event.target) && event.target !== openModalBtn) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
