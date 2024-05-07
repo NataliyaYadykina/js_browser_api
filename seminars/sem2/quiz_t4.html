@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz_t4.css">
+    <title>Seminar 2. Quiz</title>
+</head>
+
+<body>
+
+    <div class="question">
+        <p>Вопрос 1: Какой Ваш любимый цвет?</p>
+        <div class="options">
+            <label>
+                <input type="radio" name="q1" value="red">
+                <span>Красный</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="green">
+                <span>Зеленый</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="blue">
+                <span>Синий</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>Вопрос 2: Какое Ваше любимое животное?</p>
+        <div class="options">
+            <label>
+                <input type="radio" name="q2" value="hamster">
+                <span>Хомяк</span>
+            </label>
+            <label>
+                <input type="radio" name="q2" value="cat">
+                <span>Кот</span>
+            </label>
+            <label>
+                <input type="radio" name="q2" value="dog">
+                <span>Собака</span>
+            </label>
+        </div>
+    </div>
+
+    <button id="submit">Завершить опрос</button>
+
+    <div class="result" style="display: none;">
+        <p>Ваш результат:</p>
+        <p id="result_q1">Вопрос 1: <span></span></p>
+        <p id="result_q2">Вопрос 2: <span></span></p>
+    </div>
+
+    <script src="quiz_t4.js"></script>
+
+</body>
+
+</html>
