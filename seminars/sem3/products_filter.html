@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Вы разрабатываете интернет-магазин и хотите добавить
+функциональность динамического фильтрации товаров по
+категориям. У вас есть форма с выпадающим списком (select), в
+котором пользователь может выбрать категорию товаров. При выборе
+категории товаров, необходимо динамически обновлять список
+отображаемых товаров на странице, чтобы пользователь видел
+только товары из выбранной категории.
+1. Создайте интерфейс веб-страницы, который включает в себя
+следующие элементы:
+a. Выпадающий список (select) с категориями товаров.
+b. Список товаров, который будет отображать товары в
+соответствии с выбранной категорией.
+c. Каждый товар в списке должен содержать название и
+категорию.
+2. Используйте HTML для создания элементов интерфейса.
+1. Используйте JavaScript для обработки событий:
+○ При выборе категории товаров в выпадающем списке, форма
+должна следить за изменениями.
+○ Динамически обновите список товаров на странице, чтобы
+отображать только товары из выбранной категории.
+2. Создайте объекты товаров и их категорий для имитации данных магазина.
+3. Стилизуйте элементы интерфейса с помощью CSS для улучшения
+внешнего вида. -->
+
+    <h1>Выберите категорию товаров:</h1>
+    <select name="category_select" id="categorySelect">
+        <option value="">Все категории</option>
+        <option value="Электроника">Электроника</option>
+        <option value="Бытовая техника">Бытовая техника</option>
+        <option value="Книги">Книги</option>
+        <option value="Одежда">Одежда</option>
+        <option value="Мебель">Мебель</option>
+    </select>
+
+    <h2>Товары:</h2>
+    <ul id="productList"></ul>
+
+    <script>
+        const productData = [
+            {
+                id: 1,
+                name: "Ноутбук",
+                category: "Электроника",
+            },
+            {
+                id: 2,
+                name: "Планшет",
+                category: "Электроника",
+            },
+            {
+                id: 3,
+                name: "Кофемашина",
+                category: "Бытовая техника",
+            },
+            {
+                id: 4,
+                name: "Стиральная машина",
+                category: "Бытовая техника",
+            },
+            {
+                id: 5,
+                name: "Книга1",
+                category: "Книги",
+            },
+            {
+                id: 6,
+                name: "Книга2",
+                category: "Книги",
+            },
+            {
+                id: 7,
+                name: "Диван",
+                category: "Мебель",
+            },
+            {
+                id: 8,
+                name: "Стол",
+                category: "Мебель",
+            },
+            {
+                id: 9,
+                name: "Шкаф",
+                category: "Мебель",
+            },
+            {
+                id: 10,
+                name: "Плед",
+                category: "Одежда",
+            },
+            {
+                id: 11,
+                name: "Куртка",
+                category: "Одежда",
+            },
+            {
+                id: 12,
+                name: "Штаны",
+                category: "Одежда",
+            }
+        ]
+
+        function displayProducts(category) {
+            productList.innerHTML = '';
+
+            productData.forEach(product => {
+                if (category === '' || product.category === category) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = product.name;
+                    productList.appendChild(listItem);
+                }
+            });
+        }
+
+        categorySelect.addEventListener('change', function (e) {
+            const selectedCategory = categorySelect.value;
+            displayProducts(selectedCategory);
+        });
+
+        displayProducts('');
+
+    </script>
+
+</body>
+
+</html>
