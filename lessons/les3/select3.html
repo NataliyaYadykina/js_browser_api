@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3. Select 3</title>
+</head>
+
+<body>
+
+    <h1>Список товаров</h1>
+
+    <label for="sort_select">Сртировка:</label>
+    <select name="sort_select" id="sort_select">
+        <option value="asc">По возрастанию цены</option>
+        <option value="desc">По убыванию цены</option>
+    </select>
+
+    <ul id="producct_list">
+        <!-- Здесь будут отображаться товары -->
+        <li class="product_item">Товар 1 - $50</li>
+        <li class="product_item">Товар 2 - $30</li>
+        <li class="product_item">Товар 3 - $70</li>
+        <li class="product_item">Товар 4 - $20</li>
+    </ul>
+
+    <script>
+
+        const sortSelect = document.querySelector('#sort_select'); // Получение ссылки на элемент select по его id
+        const productList = document.querySelector('#producct_list'); // Получение ссылки на элемент ul по его id
+        const productItems = Array.from(document.querySelectorAll('.product_item')); // Получение ссылок на элементы li по классу product_item
+
+        sortSelect.onchange = function () { // Назначение обработчика события onchange для элемента select
+            const selectedOption = sortSelect.value; // Получение выбранной опции сортировки
+
+            // Сортировка списка товаров по цене
+            if (selectedOption === 'asc') {
+                productItems.sort((a, b) => {
+                    const aPrice = parseInt(a.textContent.split(' - $')[1]);
+                    const bPrice = parseInt(b.textContent.split(' - $')[1]);
+                    return aPrice - bPrice;
+                });
+            } else if (selectedOption === 'desc') {
+                productItems.sort((a, b) => {
+                    const aPrice = parseInt(a.textContent.split(' - $')[1]);
+                    const bPrice = parseInt(b.textContent.split(' - $')[1]);
+                    return bPrice - aPrice;
+                });
+            }
+
+            // Обновление порядка элементов в DOM
+            productList.innerHTML = '';
+            productItems.forEach(item => {
+                productList.append(item);
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

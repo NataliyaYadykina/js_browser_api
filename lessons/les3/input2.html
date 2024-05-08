@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3. Input 2</title>
+</head>
+
+<body>
+    <h1>Форма комментария</h1>
+    <textarea id="comment_input" rows="4" cols="50"></textarea>
+    <p>Количество символов: <span id="char_count">0</span></p>
+
+    <script>
+        const commentInput = document.querySelector('#comment_input');
+        const charCountElement = document.querySelector('#char_count');
+
+        commentInput.addEventListener('input', updateCharCount);
+        commentInput.addEventListener('cut', updateCharCount);
+        commentInput.addEventListener('copy', updateCharCount);
+
+        function updateCharCount() {
+            setTimeout(() => {
+                // const comment = commentInput.value;
+                // const charCount = comment.length;
+
+                // charCountElement.textContent = charCount;
+                charCountElement.textContent = commentInput.value.length;
+            }, 0);
+        }
+    </script>
+</body>
+
+</html>
